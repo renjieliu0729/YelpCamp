@@ -8,6 +8,7 @@ router.get('/register', (req,res) => {
     res.render('users/register');
 })
 
+// user register and log in the user
 router.post('/register', catchAsync(async(req,res) => {
     try {
     const{email, username, password} = req.body;
