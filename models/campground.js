@@ -8,7 +8,17 @@ const CampgroundSchema = new Schema({
     price: Number,
     description: String,
     location: String,
-
+    geometry: {
+        type: {
+            type: String,
+            enum: ['Point'],
+            required: true
+        },
+        coordinates: {
+            type: [Number],
+            required: true
+        }
+    },
     // link a person with a campground 
     
     author: {
@@ -22,6 +32,13 @@ const CampgroundSchema = new Schema({
             ref: 'Review'
         }
     ]
+},
+{toJSON: { virtuals: true }});
+
+CampgroundSchema.virtual('properties.popUpMarkup').get(function(){
+    return `<strong><a href="/campgrounds/${this._id}">Show Camp</a><strong>
+    <p>${this.description.substring(0,20)}...</p>
+    `
 });
 
 CampgroundSchema.post('findOneAndDelete', async function (doc) {
@@ -33,5 +50,7 @@ CampgroundSchema.post('findOneAndDelete', async function (doc) {
         })
     }
 })
+
+
 
 module.exports = mongoose.model('Campground', CampgroundSchema);
