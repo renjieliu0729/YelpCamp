@@ -29,7 +29,7 @@ const seedDB = async () => {
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
             image: 'https://source.unsplash.com/collection/483251',
-            description: 'Great place to rest for Renjie',
+            description: 'Great place for OOTO',
             price: Math.floor(Math.random()*100),
             geometry: { type: 'Point', 
             coordinates: [ cities[random1000].longitude,
