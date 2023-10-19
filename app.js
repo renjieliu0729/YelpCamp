@@ -23,8 +23,8 @@ const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 const userRoutes = require('./routes/users');
 
-const dbUrl = process.env.DB_URL;
-// const dbUrl = 'mongodb://localhost:27017/yelp-camp';
+// const dbUrl = process.env.DB_URL;
+const dbUrl = 'mongodb://localhost:27017/yelp-camp';
 
 
 mongoose.connect(dbUrl, {
@@ -92,7 +92,7 @@ passport.deserializeUser(User.deserializeUser());
 
 
 app.use((req, res, next) => {
-    console.log(req.query);
+    // console.log(req.query);
     res.locals.currentUser = req.user;
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');

@@ -26,7 +26,7 @@ module.exports.createCampground = async (req, res, next) => {
         campground.author = req.user._id;
         campground.geometry = geoData.body.features[0].geometry;
         await campground.save();
-        console.log(campground.geometry);
+        // console.log(campground.geometry);
         req.flash('success', 'Successfully made a new campground!');
         res.redirect(`/campgrounds/${campground._id}`)
     };
@@ -39,8 +39,8 @@ module.exports.showCampground = async (req, res,) => {
                 path: 'author'
             }
         }).populate('author');
-        console.log(campground.geometry);
-        console.log(process.env.MAPBOX_TOKEN);
+        // console.log(campground.geometry);
+        // console.log(process.env.MAPBOX_TOKEN);
         res.render('campgrounds/show', { campground });
     };
 
