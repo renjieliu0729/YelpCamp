@@ -2,6 +2,8 @@
 
 ## Description
 YelpCamp is a web application designed to help outdoor enthusiasts find and review campsites across various locations. Built with Node.js, Express, and MongoDB, this platform offers an intuitive user interface and robust features that allow users to search for campsites, read reviews, and post their own experiences.
+The website can be accessed here
+https://yelp-camp-renjie.onrender.com/campgrounds
 
 ## Features
 Browse Campsites: Users can browse a list of campsites with details including location, availability, and user ratings.
